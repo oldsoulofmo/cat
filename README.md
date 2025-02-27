@@ -9,4 +9,6 @@ To use : `java Cat file_path`
 
 Example : `java Cat /Users/defaultUser/documents/index.html`
 
+![example](example.jpg)
+
 
