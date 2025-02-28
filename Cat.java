@@ -1,16 +1,16 @@
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class Cat {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
         if (args.length > 0) {
+
             try {
+
                 File file = new File(args[0]);
                 FileReader fR = new FileReader(file);
                 BufferedReader reader = new BufferedReader(fR);
@@ -21,11 +21,14 @@ public class Cat {
                     System.out.println(line);
                 }
 
-                reader.close();
-            } catch (IOException e) {
-                e.getMessage();
-            }
+            } catch (FileNotFoundException e) {
+                System.out.println(e.getMessage());
 
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+            System.out.println("No argument passed");
         }
     }
 }
